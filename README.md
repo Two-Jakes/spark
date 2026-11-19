@@ -74,7 +74,7 @@ npm run build    # type-checks and creates the static PWA in dist/
 npm test         # runs Vitest
 ```
 
-`predev` and `prebuild` copy the current feed into `web/public/feed.json`. The app refreshes that file without using the browser's normal HTTP cache. Saved and dismissed card IDs stay in browser storage when available.
+`predev` and `prebuild` copy the current feed into `web/public/feed.json`. The app refreshes that file without using the browser's normal HTTP cache. Reading progress, saved stories, and dismissals are stored in this browser.
 
 ## Deploying
 
@@ -86,6 +86,14 @@ Connect the GitHub repository to Cloudflare Pages and set the production branch 
 |---|---|
 | Build command | `cd web && npm ci && npm run build` |
 | Build output directory | `web/dist` |
+
+### Checking a beta release
+
+The Beta checks workflow runs the Python and web tests, checks the committed feed, and builds the app. Set the Cloudflare Pages build environment to Node.js 24 to match.
+
+On a deployed preview, install the app on a phone. Read one story, swipe past another, and close and reopen the app. Check that it returns to the same story and that the skipped story is still unread. Open Saved and return to the feed to check that you keep your place.
+
+Once the ingest workflow is on the default branch, run **Refresh feed** from GitHub Actions. Check that the run succeeds and that Cloudflare Pages builds the resulting commit if the feed changes. Compare the deployed `/feed.json` with the latest committed feed.
 
 ## Cost
 

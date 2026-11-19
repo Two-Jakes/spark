@@ -37,7 +37,7 @@ export default defineConfig({
         runtimeCaching: [
           {
             urlPattern: /\/feed\.json$/,
-            handler: "StaleWhileRevalidate",
+            handler: "NetworkFirst",
             options: {
               cacheName: "spark-feed",
               cacheableResponse: { statuses: [200] },
