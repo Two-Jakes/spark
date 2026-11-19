@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Card, Feed } from "./types";
 import { filterCards, isFeed, readStoredIds, storeIds } from "./feed";
 import type { CategoryFilter, TimeFilter } from "./feed";
 import { FeedCard } from "./components/FeedCard";
 import { SafeLink } from "./components/CardVisual";
 import { TopBar } from "./components/TopBar";
+import { readProgress, resumeIndex, storeProgress } from "./progress";
 
 const SAVED_KEY = "spark:saved";
 const DISMISSED_KEY = "spark:dismissed";
@@ -70,6 +71,8 @@ export default function App(): React.JSX.Element {
   );
   const [savedOpen, setSavedOpen] = useState(false);
   const [current, setCurrent] = useState(1);
+  const [initialProgress] = useState(readProgress);
+  const progress = useRef(initialProgress);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -97,33 +100,47 @@ export default function App(): React.JSX.Element {
     return () => controller.abort();
   }, [retry]);
 
-  const visible = filterCards(feed?.cards ?? [], time, category, dismissed);
+  const visible = useMemo(
+    () => filterCards(feed?.cards ?? [], time, category, dismissed),
+    [feed, time, category, dismissed],
+  );
   const savedCards = (feed?.cards ?? []).filter((card) => saved.has(card.id));
 
-  useEffect(() => {
-    setCurrent(1);
-    if (scrollRef.current) scrollRef.current.scrollTop = 0;
-  }, [time, category, savedOpen]);
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = scrollRef.current;
     if (!root || savedOpen || status !== "ready") return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const index = Number((entry.target as HTMLElement).dataset.index);
-            if (Number.isFinite(index)) setCurrent(index);
-          }
-        }
-      },
-      { root, threshold: 0.6 },
-    );
-    root
-      .querySelectorAll<HTMLElement>("[data-index]")
-      .forEach((panel) => observer.observe(panel));
-    return () => observer.disconnect();
-  }, [visible.length, time, category, dismissed, savedOpen, status]);
+    const index = resumeIndex(visible, progress.current);
+    const panel = root.children.item(index);
+    if (panel instanceof HTMLElement) root.scrollTop = panel.offsetTop;
+    setCurrent(index + 1);
+    const id = visible[index]?.id;
+    if (id && id !== progress.current.activeId) {
+      progress.current = { ...progress.current, activeId: id };
+      storeProgress(progress.current);
+    }
+  }, [visible, savedOpen, status]);
+
+  /** Track the card crossing the center of the feed and persist its stable ID. */
+  function trackPosition(): void {
+    const root = scrollRef.current;
+    if (!root) return;
+    const position = root.scrollTop + root.clientHeight / 2;
+    // Panels are ordered by offset, so this also works for cards taller than the viewport.
+    let low = 0;
+    let high = root.children.length - 1;
+    while (low < high) {
+      const middle = Math.ceil((low + high) / 2);
+      const panel = root.children.item(middle);
+      if (panel instanceof HTMLElement && panel.offsetTop <= position) low = middle;
+      else high = middle - 1;
+    }
+    setCurrent(low + 1);
+    const id = visible[low]?.id;
+    if (id && id !== progress.current.activeId) {
+      progress.current = { ...progress.current, activeId: id };
+      storeProgress(progress.current);
+    }
+  }
 
   /** Toggle one saved ID and try to persist the new set; id is input; return nothing. */
   function toggleSaved(id: string): void {
@@ -230,6 +247,7 @@ export default function App(): React.JSX.Element {
         <main
           ref={scrollRef}
           className="feed-scroll"
+          onScroll={trackPosition}
           aria-label="Learning feed"
         >
           {visible.map((card, index) => (

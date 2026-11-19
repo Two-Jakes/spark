@@ -137,6 +137,7 @@ a:focus-visible {
   font-weight: 600;
 }
 .feed-scroll {
+  position: relative;
   height: 100dvh;
   overflow-y: auto;
   overscroll-behavior-y: contain;
