@@ -45,3 +45,11 @@ export function resumeIndex(
   const read = new Set(progress.readIds);
   return Math.max(0, cards.findIndex((card) => !read.has(card.id)));
 }
+
+/** Return unread stories from the supplied view in their original order. */
+export function unreadCards<T extends { id: string }>(
+  cards: readonly T[],
+  readIds: ReadonlySet<string>,
+): T[] {
+  return cards.filter((card) => !readIds.has(card.id));
+}

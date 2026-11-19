@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { readProgress, resumeIndex, storeProgress } from "./progress";
+import { readProgress, resumeIndex, storeProgress, unreadCards } from "./progress";
 import type { ReadingProgress } from "./progress";
 
 const progress: ReadingProgress = { version: 1, readIds: ["read"], activeId: "active" };
@@ -31,4 +31,10 @@ describe("local reading progress", () => {
     expect(resumeIndex([{ id: "read" }, { id: "new" }], progress)).toBe(1);
     expect(resumeIndex([{ id: "read" }], progress)).toBe(0);
   });
+});
+
+it("counts unread stories in the supplied filtered view", () => {
+  const readIds = new Set(["read", "elsewhere"]);
+  expect(unreadCards([{ id: "read" }, { id: "skipped" }], readIds))
+    .toEqual([{ id: "skipped" }]);
 });

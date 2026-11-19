@@ -14,6 +14,7 @@ interface TopBarProps {
   category: CategoryFilter;
   current: number;
   total: number;
+  unread: number;
   savedCount: number;
   savedOpen: boolean;
   onTime: (time: TimeFilter) => void;
@@ -27,6 +28,7 @@ export function TopBar({
   category,
   current,
   total,
+  unread,
   savedCount,
   savedOpen,
   onTime,
@@ -44,7 +46,7 @@ export function TopBar({
         </div>
         <div className="top-bar-right">
           <span className="position-counter" aria-live="polite">
-            {total === 0 ? 0 : Math.min(current, total)} / {total}
+            {total === 0 ? 0 : Math.min(current, total)} / {total} · {unread} left
           </span>
           <button
             className="saved-toggle"

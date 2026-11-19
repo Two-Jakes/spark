@@ -5,6 +5,9 @@ interface FeedCardProps {
   card: Card;
   index: number;
   saved: boolean;
+  read: boolean;
+  onRead: (id: string) => void;
+  onReadAndNext: (id: string) => void;
   onSave: (id: string) => void;
   onDismiss: (id: string) => void;
   onListen: (card: Card) => void;
@@ -15,6 +18,9 @@ export function FeedCard({
   card,
   index,
   saved,
+  read,
+  onRead,
+  onReadAndNext,
   onSave,
   onDismiss,
   onListen,
@@ -37,6 +43,8 @@ export function FeedCard({
       className="feed-card snap-panel"
       data-category={card.category}
       data-index={index}
+      tabIndex={-1}
+      aria-label={card.hook}
     >
       <div className="card-inner">
         <div className="card-topline">
@@ -60,6 +68,14 @@ export function FeedCard({
                 via {card.via.name}
               </SafeLink>
             )}
+          </div>
+          <div className="card-actions">
+            <button type="button" onClick={() => onRead(card.id)}>
+              {read ? "Mark unread" : "Mark as read"}
+            </button>
+            <button type="button" onClick={() => onReadAndNext(card.id)}>
+              {read ? "Next" : "Read and next"}
+            </button>
           </div>
           <div className="card-actions">
             <button

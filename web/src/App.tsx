@@ -5,7 +5,7 @@ import type { CategoryFilter, TimeFilter } from "./feed";
 import { FeedCard } from "./components/FeedCard";
 import { SafeLink } from "./components/CardVisual";
 import { TopBar } from "./components/TopBar";
-import { readProgress, resumeIndex, storeProgress } from "./progress";
+import { readProgress, resumeIndex, storeProgress, unreadCards } from "./progress";
 
 const SAVED_KEY = "spark:saved";
 const DISMISSED_KEY = "spark:dismissed";
@@ -73,6 +73,7 @@ export default function App(): React.JSX.Element {
   const [current, setCurrent] = useState(1);
   const [initialProgress] = useState(readProgress);
   const progress = useRef(initialProgress);
+  const [readIds, setReadIds] = useState(() => new Set(initialProgress.readIds));
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -104,6 +105,7 @@ export default function App(): React.JSX.Element {
     () => filterCards(feed?.cards ?? [], time, category, dismissed),
     [feed, time, category, dismissed],
   );
+  const unread = unreadCards(visible, readIds);
   const savedCards = (feed?.cards ?? []).filter((card) => saved.has(card.id));
 
   useLayoutEffect(() => {
@@ -140,6 +142,32 @@ export default function App(): React.JSX.Element {
       progress.current = { ...progress.current, activeId: id };
       storeProgress(progress.current);
     }
+  }
+
+  /** Toggle read status for a story and store the updated IDs. */
+  function toggleRead(id: string): void {
+    const next = new Set(readIds);
+    if (next.has(id)) next.delete(id);
+    else next.add(id);
+    progress.current = { ...progress.current, readIds: [...next] };
+    storeProgress(progress.current);
+    setReadIds(next);
+  }
+
+  /** Scroll to a rendered panel and move keyboard focus to it. */
+  function goToPanel(index: number): void {
+    const root = scrollRef.current;
+    const panel = root?.children.item(index);
+    if (!root || !(panel instanceof HTMLElement)) return;
+    root.scrollTop = panel.offsetTop;
+    panel.focus({ preventScroll: true });
+    trackPosition();
+  }
+
+  /** Mark the chosen story read and advance to the following panel. */
+  function readAndNext(id: string): void {
+    if (!readIds.has(id)) toggleRead(id);
+    goToPanel(visible.findIndex((card) => card.id === id) + 1);
   }
 
   /** Toggle one saved ID and try to persist the new set; id is input; return nothing. */
@@ -192,6 +220,7 @@ export default function App(): React.JSX.Element {
         category={category}
         current={current}
         total={visible.length}
+        unread={unread.length}
         savedCount={savedCards.length}
         savedOpen={savedOpen}
         onTime={setTime}
@@ -256,6 +285,9 @@ export default function App(): React.JSX.Element {
               card={card}
               index={index + 1}
               saved={saved.has(card.id)}
+              read={readIds.has(card.id)}
+              onRead={toggleRead}
+              onReadAndNext={readAndNext}
               onSave={toggleSaved}
               onDismiss={dismiss}
               onListen={listen}
@@ -265,11 +297,15 @@ export default function App(): React.JSX.Element {
             className="caught-up snap-panel"
             data-index={visible.length + 1}
             aria-label="End of feed"
+            tabIndex={-1}
           >
             <div className="caught-up-inner">
-              <span className="eyebrow">All done for now</span>
-              <h2>You’re caught up.</h2>
-              <p>Fresh sparks will be here after the next feed update.</p>
+              <h2>{unread.length ? "End of this view." : "You’re caught up."}</h2>
+              {unread.length > 0 && (
+                <button type="button" onClick={() => goToPanel(visible.indexOf(unread[0]))}>
+                  Back to unread
+                </button>
+              )}
               <button
                 type="button"
                 onClick={retryFeed}
