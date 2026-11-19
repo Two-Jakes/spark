@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>arXiv example</title>
+  <entry><id>https://arxiv.org/abs/2601.00001</id><title>Efficient Test Models</title><link href="https://arxiv.org/abs/2601.00001" rel="alternate"/><published>2026-11-18T08:00:00Z</published><updated>2026-11-18T08:00:00Z</updated><summary>We describe a small model. It reduces latency. A third sentence should be omitted.</summary></entry>
+  <entry><id>https://arxiv.org/abs/2601.00002</id><title>Old Test Paper</title><link href="https://arxiv.org/abs/2601.00002" rel="alternate"/><published>2026-11-14T08:00:00Z</published><updated>2026-11-14T08:00:00Z</updated><summary>Old abstract.</summary></entry>
+</feed>

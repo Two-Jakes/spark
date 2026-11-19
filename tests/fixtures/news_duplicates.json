@@ -1,0 +1,10 @@
+{
+  "nginx": [
+    {"provider": "Wiz", "title": "Unauthenticated remote code execution in Nginx", "url": "https://wiz.example/nginx", "body": "Research on the Nginx flaw."},
+    {"provider": "The Hacker News", "title": "10-Year-Old NGINX HTTP/2 Flaw Lets Unauthenticated Attackers Execute Code on Servers", "url": "https://thn.example/nginx", "body": "A flaw in Nginx."}
+  ],
+  "cve": [
+    {"provider": "Publisher A", "title": "Patch guide for CVE-2026-71001", "url": "https://a.example/guide", "body": "Patch guidance."},
+    {"provider": "Publisher B", "title": "CVE-2026-71001 affects another component", "url": "https://b.example/report", "body": "A different headline."}
+  ]
+}

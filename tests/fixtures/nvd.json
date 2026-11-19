@@ -1,0 +1,34 @@
+{
+  "resultsPerPage": 3,
+  "startIndex": 0,
+  "totalResults": 3,
+  "vulnerabilities": [
+    {
+      "cve": {
+        "id": "CVE-2026-10001",
+        "published": "2026-11-17T12:00:00.000",
+        "vulnStatus": "Analyzed",
+        "descriptions": [{"lang": "en", "value": "Widget allows remote code execution through a crafted request."}],
+        "metrics": {"cvssMetricV31": [{"type": "Primary", "cvssData": {"baseScore": 8.8, "baseSeverity": "HIGH"}}]},
+        "configurations": [{"nodes": [{"cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:example_co:widget:*:*:*:*:*:*:*:*", "versionEndExcluding": "2.0"}]}]}]
+      }
+    },
+    {
+      "cve": {
+        "id": "CVE-2026-10003",
+        "published": "2026-11-18T08:00:00.000",
+        "vulnStatus": "Awaiting Analysis",
+        "descriptions": [{"lang": "en", "value": "A parser issue affects a test product."}],
+        "metrics": {"cvssMetricV40": [{"type": "Primary", "cvssData": {"baseScore": 9.3, "baseSeverity": "CRITICAL"}}]}
+      }
+    },
+    {
+      "cve": {
+        "id": "CVE-2026-10004",
+        "published": "2026-11-18T09:00:00.000",
+        "vulnStatus": "Rejected",
+        "descriptions": [{"lang": "en", "value": "Rejected CVE."}]
+      }
+    }
+  ]
+}

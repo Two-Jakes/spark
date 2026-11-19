@@ -1,0 +1,7 @@
+- id: another_blog
+  name: Another Blog
+  category: Development
+  kind: rss
+  url: https://another.example/feed.xml
+  enabled: true
+  max_items: 8

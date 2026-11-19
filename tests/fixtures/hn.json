@@ -1,0 +1,10 @@
+{
+  "top": [1, 2, 3, 4, 5],
+  "items": {
+    "1": {"id": 1, "type": "story", "title": "New LLM inference runtime", "url": "https://ai.example/story", "score": 150, "time": 0},
+    "2": {"id": 2, "type": "story", "title": "Security vulnerability in login flow", "url": "https://security.example/story", "score": 180, "time": 0},
+    "3": {"id": 3, "type": "story", "title": "A new Rust library", "url": "https://dev.example/story", "score": 100, "time": 0},
+    "4": {"id": 4, "type": "story", "title": "Low score story", "url": "https://dev.example/low", "score": 99, "time": 0},
+    "5": {"id": 5, "type": "story", "title": "No outbound URL", "score": 300, "time": 0}
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "vulnerabilities": [
+    {
+      "cve": {
+        "id": "CVE-2026-71001",
+        "published": "2026-11-18T08:00:00Z",
+        "vulnStatus": "Analyzed",
+        "descriptions": [{"lang": "en", "value": "A flaw in the runtime allows code execution."}],
+        "metrics": {"cvssMetricV31": [{"type": "Primary", "cvssData": {"baseScore": 9.8, "baseSeverity": "CRITICAL"}}]},
+        "configurations": [{"nodes": [{"cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:example_vendor:sample_runtime:*:*:*:*:*:*:*:*", "versionEndExcluding": "2.5"}]}]}]
+      }
+    }
+  ]
+}

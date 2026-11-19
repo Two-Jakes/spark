@@ -46,9 +46,9 @@ AGENTS.md           standing rules for coding agents
 | Category | Sources |
 |---|---|
 | CVEs | CISA Known Exploited Vulnerabilities, NVD API |
-| AI | arXiv, Hacker News, lab blog RSS |
-| Development | GitHub release feeds, Hacker News, dev blog RSS |
-| Cyber Security | security news and research blog RSS |
+| AI | TLDR AI, arXiv, Hacker News (classified stories) |
+| Development | TLDR Dev, TLDR DevOps, Hacker News (classified stories), Lobsters |
+| Cyber Security | TLDR InfoSec, Hacker News (classified stories), Krebs on Security, BleepingComputer, The Hacker News, Google Project Zero |
 
 ## Getting started
 
@@ -62,7 +62,19 @@ pytest                    # runs tests (no network needed)
 
 Optional: set `NVD_API_KEY` for higher NVD rate limits.
 
-The web app instructions will be added when `web/` lands.
+## Run the web app
+
+Requires Node.js 20.19+ or 22.12+ and a generated `data/feed.json`.
+
+```bash
+cd web
+npm install
+npm run dev      # copies ../data/feed.json and starts Vite
+npm run build    # type-checks and creates the static PWA in dist/
+npm test         # runs Vitest
+```
+
+`predev` and `prebuild` copy the current feed into `web/public/feed.json`. The app refreshes that file without using the browser's normal HTTP cache. Saved and dismissed card IDs stay in browser storage when available.
 
 ## Cost
 

@@ -1,0 +1,88 @@
+- id: tldr_ai
+  name: TLDR AI
+  category: AI
+  kind: tldr
+  url: https://tldr.tech/api/rss/ai
+  enabled: true
+  max_items: 12
+  weight: 1.0
+- id: tldr_dev
+  name: TLDR Dev
+  category: Development
+  kind: tldr
+  url: https://tldr.tech/api/rss/dev
+  enabled: true
+  max_items: 12
+  weight: 1.0
+- id: tldr_devops
+  name: TLDR DevOps
+  category: Development
+  kind: tldr
+  url: https://tldr.tech/api/rss/devops
+  enabled: true
+  max_items: 12
+  weight: 1.0
+- id: tldr_infosec
+  name: TLDR InfoSec
+  category: Cyber Security
+  kind: tldr
+  url: https://tldr.tech/api/rss/infosec
+  enabled: true
+  max_items: 12
+  weight: 1.0
+- id: hacker_news
+  name: Hacker News
+  category: Development
+  kind: hn
+  url: https://hacker-news.firebaseio.com/v0/topstories.json
+  enabled: true
+  max_items: 30
+  weight: 1.0
+- id: arxiv_ai
+  name: arXiv
+  category: AI
+  kind: arxiv
+  url: https://export.arxiv.org/api/query
+  enabled: true
+  max_items: 50
+  weight: 1.0
+- id: lobsters
+  name: Lobsters
+  category: Development
+  kind: rss
+  url: https://lobste.rs/rss
+  enabled: true
+  max_items: 20
+  weight: 1.0
+- id: krebs
+  name: Krebs on Security
+  category: Cyber Security
+  kind: rss
+  url: https://krebsonsecurity.com/feed/
+  enabled: true
+  max_items: 20
+  weight: 1.0
+- id: bleeping_computer
+  name: BleepingComputer
+  category: Cyber Security
+  kind: rss
+  url: https://www.bleepingcomputer.com/feed/
+  enabled: true
+  max_items: 20
+  weight: 1.0
+- id: the_hacker_news
+  name: The Hacker News
+  category: Cyber Security
+  kind: rss
+  url: https://feeds.feedburner.com/TheHackersNews
+  enabled: true
+  max_items: 20
+  weight: 1.0
+- id: project_zero
+  name: Google Project Zero
+  category: Cyber Security
+  kind: rss
+  url: https://projectzero.google/feed.xml
+  enabled: true
+  max_items: 20
+  weight: 1.0

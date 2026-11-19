@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>arXiv synthetic papers</title>
+  <entry><id>https://arxiv.org/abs/2611.00001</id><title>Fast Paper One</title><link href="https://arxiv.org/abs/2611.00001" rel="alternate"/><published>2026-11-18T11:00:00Z</published><summary>First abstract.</summary></entry>
+  <entry><id>https://arxiv.org/abs/2611.00002</id><title>Fast Paper Two</title><link href="https://arxiv.org/abs/2611.00002" rel="alternate"/><published>2026-11-18T10:00:00Z</published><summary>Second abstract.</summary></entry>
+  <entry><id>https://arxiv.org/abs/2611.00003</id><title>Shared Research Three</title><link href="https://arxiv.org/abs/2611.00003" rel="alternate"/><published>2026-11-18T09:00:00Z</published><summary>Third abstract.</summary></entry>
+  <entry><id>https://arxiv.org/abs/2611.00004</id><title>Independent Paper Four</title><link href="https://arxiv.org/abs/2611.00004" rel="alternate"/><published>2026-11-18T08:00:00Z</published><summary>Fourth abstract.</summary></entry>
+</feed>

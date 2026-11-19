@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+.pytest_tmp/
+*.py[cod]
+web/node_modules/
+web/dist/
+web/public/feed.json

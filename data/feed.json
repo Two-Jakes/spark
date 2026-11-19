@@ -1,0 +1,801 @@
+{
+  "version": 1,
+  "generated_at": "2026-11-19T04:18:51Z",
+  "cards": [
+    {
+      "id": "cve:CVE-2026-90817",
+      "category": "CVEs",
+      "type": "advisory",
+      "hook": "Critical flaw in Vanderbilt University Research Electronic Data Capture (REDCap)",
+      "body": "An unauthenticated Remote Code Execution vulnerability was found in the survey passthrough routing and Data Import processing logic, in which a malicious user could potentially exploit it by manipulating HTTP requests to access an unintended controller route from a public survey context and by supplying a crafted…",
+      "mins": 2,
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90817"
+      },
+      "published": "2026-11-18T00:00:00Z",
+      "rank": 201.79496,
+      "cve": {
+        "id": "CVE-2026-90817",
+        "cvss": 9.8,
+        "severity": "Critical",
+        "affected": "Vanderbilt University Research Electronic Data Capture (REDCap)",
+        "exploited": "Exploited in the wild",
+        "fix": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+      },
+      "via": {
+        "name": "CISA KEV",
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+      }
+    },
+    {
+      "id": "cve:CVE-2026-90436",
+      "category": "CVEs",
+      "type": "advisory",
+      "hook": "Critical flaw in Apache Axis",
+      "body": "** UNSUPPORTED WHEN ASSIGNED ** Deserialization of an inbound SOAP fault in Apache Axis 1.x allows unauthenticated remote class instantiation.",
+      "mins": 2,
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90436"
+      },
+      "published": "2026-11-18T00:00:00Z",
+      "rank": 201.79496,
+      "cve": {
+        "id": "CVE-2026-90436",
+        "cvss": 9.8,
+        "severity": "Critical",
+        "affected": "Apache Axis",
+        "exploited": "Exploited in the wild",
+        "fix": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+      },
+      "via": {
+        "name": "CISA KEV",
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+      }
+    },
+    {
+      "id": "cve:CVE-2026-40217",
+      "category": "CVEs",
+      "type": "advisory",
+      "hook": "High flaw in BerriAI LiteLLM",
+      "body": "LiteLLM through 2026-04-08 allows remote attackers to execute arbitrary code via bytecode rewriting at the /guardrails/test_custom_code URI.",
+      "mins": 2,
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40217"
+      },
+      "published": "2026-11-18T00:00:00Z",
+      "rank": 201.79496,
+      "cve": {
+        "id": "CVE-2026-40217",
+        "cvss": 8.8,
+        "severity": "High",
+        "affected": "BerriAI LiteLLM",
+        "exploited": "Exploited in the wild",
+        "fix": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+      },
+      "via": {
+        "name": "CISA KEV",
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+      }
+    },
+    {
+      "id": "cve:CVE-2024-10441",
+      "category": "CVEs",
+      "type": "advisory",
+      "hook": "Critical flaw in Synology DiskStation Manager (DSM)",
+      "body": "Improper encoding or escaping of output vulnerability in the system plugin daemon in Synology BeeStation OS (BSM) before 1.1-65374 and Synology DiskStation Manager (DSM) before 7.2-64570-4, 7.2.1-69057-6 and 7.2.2-72806-1 allows remote attackers to execute arbitrary code via unspecified vectors.",
+      "mins": 2,
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-10441"
+      },
+      "published": "2026-11-18T00:00:00Z",
+      "rank": 201.79496,
+      "cve": {
+        "id": "CVE-2024-10441",
+        "cvss": 9.8,
+        "severity": "Critical",
+        "affected": "Synology DiskStation Manager (DSM)",
+        "exploited": "Exploited in the wild",
+        "fix": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+      },
+      "via": {
+        "name": "CISA KEV",
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+      }
+    },
+    {
+      "id": "cve:CVE-2026-115731",
+      "category": "CVEs",
+      "type": "advisory",
+      "hook": "Critical flaw in Perforce Puppet Enterprise",
+      "body": "Deserialization of untrusted data in the report-processing code of Puppet, as used by Puppet Server, in the affected releases, allows a client that holds any CA-signed agent certificate to execute arbitrary code on the Puppet Server as its service user by submitting a report containing a crafted rich-data type via…",
+      "mins": 2,
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115731"
+      },
+      "published": "2026-11-17T00:00:00Z",
+      "rank": 201.7948736,
+      "cve": {
+        "id": "CVE-2026-115731",
+        "cvss": 9.4,
+        "severity": "Critical",
+        "affected": "Perforce Puppet Enterprise",
+        "exploited": "Exploited in the wild",
+        "fix": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+      },
+      "via": {
+        "name": "CISA KEV",
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+      }
+    },
+    {
+      "id": "cve:CVE-2026-123039",
+      "category": "CVEs",
+      "type": "advisory",
+      "hook": "High flaw in Check Point Multiple Products",
+      "body": "The Gaia OS DynamicCLI daemon runs as root and listens on a world-writable local socket (/tmp/dynamic_socket) without authenticating connecting processes. An authenticated local user can send a command to the socket and have it executed as root.",
+      "mins": 2,
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123039"
+      },
+      "published": "2026-11-13T00:00:00Z",
+      "rank": 201.794528,
+      "cve": {
+        "id": "CVE-2026-123039",
+        "cvss": 7.8,
+        "severity": "High",
+        "affected": "Check Point Multiple Products",
+        "exploited": "Exploited in the wild",
+        "fix": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+      },
+      "via": {
+        "name": "CISA KEV",
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+      }
+    },
+    {
+      "id": "cve:CVE-2026-75521",
+      "category": "CVEs",
+      "type": "advisory",
+      "hook": "Miren Runtime provides the runtime component for the Miren application platform.",
+      "body": "Miren Runtime provides the runtime component for the Miren application platform. Prior to 0.11.1, the QUIC/HTTP3 RPC server on the default port 8443 uses tls.RequestClientCert and does not verify that presented certificates chain to the configured cluster certificate authority.",
+      "mins": 2,
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75521"
+      },
+      "published": "2026-11-18T19:18:08Z",
+      "rank": 100.01795029488,
+      "cve": {
+        "id": "CVE-2026-75521",
+        "cvss": 10.0,
+        "severity": "Critical",
+        "affected": "mirendev runtime < 0.11.1",
+        "exploited": "No known exploitation",
+        "fix": "See advisory"
+      }
+    },
+    {
+      "id": "cve:CVE-2026-71499",
+      "category": "CVEs",
+      "type": "advisory",
+      "hook": "cf-manager is an all-in-one dashboard for managing multiple Cloudflare accounts and…",
+      "body": "cf-manager is an all-in-one dashboard for managing multiple Cloudflare accounts and services. Prior to 1.1.2, worker/src/routes/workers.ts uses bare fetch(url) calls to retrieve user-supplied URLs and deploys the returned content as a Worker script using stored Cloudflare credentials.",
+      "mins": 2,
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71499"
+      },
+      "published": "2026-11-18T19:18:07Z",
+      "rank": 100.01795029487,
+      "cve": {
+        "id": "CVE-2026-71499",
+        "cvss": 10.0,
+        "severity": "Critical",
+        "affected": "hefy2027 cf-manager < 1.1.2",
+        "exploited": "No known exploitation",
+        "fix": "See advisory"
+      }
+    },
+    {
+      "id": "cve:CVE-2026-130778",
+      "category": "CVEs",
+      "type": "advisory",
+      "hook": "Incus before 7.6.0 contains an authentication bypass vulnerability that allows remote…",
+      "body": "Incus before 7.6.0 contains an authentication bypass vulnerability that allows remote attackers to authenticate as any trusted certificate by appending its public certificate to their presented TLS client chain.",
+      "mins": 2,
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130778"
+      },
+      "published": "2026-11-18T19:17:53Z",
+      "rank": 100.01795029473,
+      "cve": {
+        "id": "CVE-2026-130778",
+        "cvss": 10.0,
+        "severity": "Critical",
+        "affected": "lxc incus 0 to before 7.6.0",
+        "exploited": "No known exploitation",
+        "fix": "See advisory"
+      }
+    },
+    {
+      "id": "cve:CVE-2026-95787",
+      "category": "CVEs",
+      "type": "advisory",
+      "hook": "Vulnerabilities in the PAPI protocol of AOS-10 could allow an unauthenticated remote…",
+      "body": "Vulnerabilities in the PAPI protocol of AOS-10 could allow an unauthenticated remote attacker to circumvent existing authentication controls. Successful exploitation could allow an attacker to gain administrative access, modify system configurations, and access or manipulate sensitive data.",
+      "mins": 2,
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95787"
+      },
+      "published": "2026-11-18T14:17:45Z",
+      "rank": 100.01795011465,
+      "cve": {
+        "id": "CVE-2026-95787",
+        "cvss": 10.0,
+        "severity": "Critical",
+        "affected": "Hewlett Packard Enterprise (HPE) ArubaOS (AOS) 10.8.0.0 through 10.8.1.1",
+        "exploited": "No known exploitation",
+        "fix": "See advisory"
+      }
+    },
+    {
+      "id": "news:0c457241d113ed5afb203a3a",
+      "category": "Cyber Security",
+      "type": "article",
+      "hook": "Unauthenticated remote code execution in Nginx",
+      "body": "Discussed on Hacker News.",
+      "mins": 2,
+      "source": {
+        "name": "Hacker News",
+        "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
+      },
+      "published": "2026-11-18T15:19:55Z",
+      "rank": 2.107495885827592,
+      "meta": {
+        "seen_in": [
+          "Hacker News",
+          "The Hacker News"
+        ],
+        "hn_points": 1212
+      }
+    },
+    {
+      "id": "news:be0aed2f51056a6d6c6f6be3",
+      "category": "AI",
+      "type": "article",
+      "hook": "Gemini 4 Neon",
+      "body": "Discussed on Hacker News.",
+      "mins": 2,
+      "source": {
+        "name": "Hacker News",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon"
+      },
+      "published": "2026-11-18T21:34:07Z",
+      "rank": 2.093852430077355,
+      "meta": {
+        "seen_in": [
+          "Hacker News"
+        ],
+        "hn_points": 574
+      }
+    },
+    {
+      "id": "news:a4c35d98fa9774d1fd7840ec",
+      "category": "Development",
+      "type": "article",
+      "hook": "We need smart people who give a shit",
+      "body": "Discussed on Hacker News.",
+      "mins": 2,
+      "source": {
+        "name": "Hacker News",
+        "url": "https://violetpixel.com/blog/2026-11-17-we-need-smart-people-who-give-a-shit"
+      },
+      "published": "2026-11-18T23:53:49Z",
+      "rank": 2.0351329575650805,
+      "meta": {
+        "seen_in": [
+          "Hacker News"
+        ],
+        "hn_points": 321
+      }
+    },
+    {
+      "id": "news:f3c95c6ecf7bca4f64f007d7",
+      "category": "Development",
+      "type": "article",
+      "hook": "Inside Deutsche Bank",
+      "body": "Discussed on Hacker News.",
+      "mins": 2,
+      "source": {
+        "name": "Hacker News",
+        "url": "https://www.inside-db.com"
+      },
+      "published": "2026-11-18T15:38:33Z",
+      "rank": 1.968522954572821,
+      "meta": {
+        "seen_in": [
+          "Hacker News"
+        ],
+        "hn_points": 586
+      }
+    },
+    {
+      "id": "news:8fb2b07791e8b28a2e5989b1",
+      "category": "Development",
+      "type": "article",
+      "hook": "Incidents in the news",
+      "body": "Comments",
+      "mins": 2,
+      "source": {
+        "name": "Lobsters",
+        "url": "https://surfingcomplexity.blog/2026/11/18/incidents-in-the-news"
+      },
+      "published": "2026-11-19T01:45:23Z",
+      "rank": 0.928785432922892,
+      "meta": {
+        "seen_in": [
+          "Lobsters"
+        ]
+      }
+    },
+    {
+      "id": "news:a3206b5e35b90800976a627d",
+      "category": "Development",
+      "type": "article",
+      "hook": "sysdeck: Raycast for Linux & BSD",
+      "body": "Comments",
+      "mins": 2,
+      "source": {
+        "name": "Lobsters",
+        "url": "https://xn--gckvb8fzb.com/sysdeck-raycast-for-linux-bsd"
+      },
+      "published": "2026-11-18T23:26:59Z",
+      "rank": 0.8689265513547203,
+      "meta": {
+        "seen_in": [
+          "Lobsters"
+        ]
+      }
+    },
+    {
+      "id": "news:a799be44dacf0d3801ea0908",
+      "category": "Cyber Security",
+      "type": "article",
+      "hook": "Ukraine, FBI arrest ransomware gang members tied to $40M in ransoms",
+      "body": "Ukrainian authorities, working with the FBI, have arrested four suspected members of an international ransomware organization linked to more than $40.5 million in ransom payments from at least 28…",
+      "mins": 2,
+      "source": {
+        "name": "BleepingComputer",
+        "url": "https://www.bleepingcomputer.com/news/security/ukraine-fbi-arrest-ransomware-gang-members-tied-to-40m-in-ransoms"
+      },
+      "published": "2026-11-18T23:08:33Z",
+      "rank": 0.8612507344490583,
+      "meta": {
+        "seen_in": [
+          "BleepingComputer"
+        ]
+      }
+    },
+    {
+      "id": "news:f5c284cc8ef4e73dec28c0fe",
+      "category": "Development",
+      "type": "article",
+      "hook": "Reversing the Next-Page Prefetcher in Skylake-X",
+      "body": "Comments",
+      "mins": 2,
+      "source": {
+        "name": "Lobsters",
+        "url": "https://devsh0.github.io/microarchitecture,/intel,/computer-architecture/2026/11/17/reversing-the-next-page-prefetcher-in-skylake-x.html"
+      },
+      "published": "2026-11-18T21:15:49Z",
+      "rank": 0.8157608500598554,
+      "meta": {
+        "seen_in": [
+          "Lobsters"
+        ]
+      }
+    },
+    {
+      "id": "news:85c8b4d9b42d21179a731946",
+      "category": "Cyber Security",
+      "type": "article",
+      "hook": "Coinbase blocks $4.7 million in transfers to Elon Musk deepfake scam",
+      "body": "Coinbase says it blocked $4.7 million in cryptocurrency transfers to scammers promoting a fake giveaway using an AI-generated deepfake of Elon Musk during a Tesla livestream that attracted more than…",
+      "mins": 2,
+      "source": {
+        "name": "BleepingComputer",
+        "url": "https://www.bleepingcomputer.com/news/security/coinbase-blocks-47-million-in-transfers-to-elon-musk-deepfake-scam"
+      },
+      "published": "2026-11-18T20:49:32Z",
+      "rank": 0.805505230073963,
+      "meta": {
+        "seen_in": [
+          "BleepingComputer"
+        ]
+      }
+    },
+    {
+      "id": "news:0d000275bdc6a57e3e9556b4",
+      "category": "Development",
+      "type": "article",
+      "hook": "Stricter checks for uploaded distributions on PyPI",
+      "body": "Comments",
+      "mins": 2,
+      "source": {
+        "name": "Lobsters",
+        "url": "https://blog.pypi.org/posts/2026-11-18-stricter-checks-for-uploaded-sdists"
+      },
+      "published": "2026-11-18T20:00:42Z",
+      "rank": 0.7867917985773756,
+      "meta": {
+        "seen_in": [
+          "Lobsters"
+        ]
+      }
+    },
+    {
+      "id": "news:15c72b037d4b5333138c1051",
+      "category": "Cyber Security",
+      "type": "article",
+      "hook": "Data breach impacts 40 Irish credit unions in reported IT provider hack",
+      "body": "A reported cyberattack on Wellington IT has exposed sensitive information belonging to members of 50 credit unions, the majority of which are located in Ireland.",
+      "mins": 2,
+      "source": {
+        "name": "BleepingComputer",
+        "url": "https://www.bleepingcomputer.com/news/security/data-breach-impacts-40-irish-credit-unions-in-reported-it-provider-hack"
+      },
+      "published": "2026-11-18T19:39:33Z",
+      "rank": 0.7788224219572889,
+      "meta": {
+        "seen_in": [
+          "BleepingComputer"
+        ]
+      }
+    },
+    {
+      "id": "news:4ab4f5e03685767a0a27b7d9",
+      "category": "Cyber Security",
+      "type": "article",
+      "hook": "F5 Warns 6 Critical BIG-IP Flaws Can Crash Traffic in Specific Setups, May Allow RCE",
+      "body": "Six critical vulnerabilities in F5 BIG-IP allow an attacker to crash the Traffic Management Microkernel (TMM) without logging in, disrupting traffic until the TMM restarts.",
+      "mins": 2,
+      "source": {
+        "name": "The Hacker News",
+        "url": "https://thehackernews.com/2026/11/f5-warns-6-critical-big-ip-flaws-can.html"
+      },
+      "published": "2026-11-18T18:15:39Z",
+      "rank": 0.7479959871323903,
+      "meta": {
+        "seen_in": [
+          "The Hacker News"
+        ]
+      }
+    },
+    {
+      "id": "news:6ec0dce548ff06fef1684d29",
+      "category": "Cyber Security",
+      "type": "article",
+      "hook": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required",
+      "body": "A critical security flaw in Apache Roller, an open-source, Java-based blogging platform, has come under active exploitation in the wild, according to the Apache Software Foundation (ASF) The…",
+      "mins": 2,
+      "source": {
+        "name": "The Hacker News",
+        "url": "https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html"
+      },
+      "published": "2026-11-18T17:10:45Z",
+      "rank": 0.7249899950422621,
+      "meta": {
+        "seen_in": [
+          "The Hacker News"
+        ]
+      }
+    },
+    {
+      "id": "news:2f0e5fdb0863109af43b2d8a",
+      "category": "Cyber Security",
+      "type": "article",
+      "hook": "Microsoft’s Agent Framework PyPI package compromised to steal credentials",
+      "body": "Hackers compromised Microsoft's official Agent Framework Python package on PyPI, publishing two malicious versions designed to steal cloud credentials and other sensitive information from…",
+      "mins": 2,
+      "source": {
+        "name": "BleepingComputer",
+        "url": "https://www.bleepingcomputer.com/news/security/microsofts-agent-framework-pypi-package-compromised-to-steal-credentials"
+      },
+      "published": "2026-11-18T16:58:42Z",
+      "rank": 0.7207970118638527,
+      "meta": {
+        "seen_in": [
+          "BleepingComputer",
+          "The Hacker News"
+        ]
+      }
+    },
+    {
+      "id": "news:16d1e418da7ea1b76c1da0a8",
+      "category": "Cyber Security",
+      "type": "article",
+      "hook": "New EggStreme Malware Variant Goes Silent to Evade Security Tools in Government Attacks",
+      "body": "The suspected Chinese advanced persistent threat (APT) group behind the sophisticated EggStreme malware has rebuilt its toolkit as it continues to target government organizations in the Philippines.",
+      "mins": 2,
+      "source": {
+        "name": "The Hacker News",
+        "url": "https://thehackernews.com/2026/11/eggstreme-hackers-rebuild-malware-with.html"
+      },
+      "published": "2026-11-18T14:11:28Z",
+      "rank": 0.6650481382159913,
+      "meta": {
+        "seen_in": [
+          "The Hacker News"
+        ]
+      }
+    },
+    {
+      "id": "news:1e608d2ec6315c99638bac6c",
+      "category": "AI",
+      "type": "paper",
+      "hook": "RSIBench-Infra: Can Agents Optimize Their Own Training and Inference Infrastructure at…",
+      "body": "Improving the efficiency of training and inference infrastructure is a practical component of recursive self-improvement.",
+      "mins": 5,
+      "source": {
+        "name": "arXiv",
+        "url": "https://arxiv.org/abs/2611.24395v1"
+      },
+      "published": "2026-11-18T13:29:44Z",
+      "rank": 0.651821658207191,
+      "meta": {
+        "seen_in": [
+          "arXiv"
+        ]
+      }
+    },
+    {
+      "id": "news:9ba145b6849e0190e99f0bde",
+      "category": "AI",
+      "type": "paper",
+      "hook": "Temporal Rank in Recurrent Neural Networks",
+      "body": "Recurrent Neural Networks (RNNs) are a natural framework for temporal modelling, yet are often dismissed due to their sequential, non-parallelisable computation and difficulty in capturing long-range dependencies…",
+      "mins": 5,
+      "source": {
+        "name": "arXiv",
+        "url": "https://arxiv.org/abs/2611.24394v1"
+      },
+      "published": "2026-11-18T13:28:07Z",
+      "rank": 0.6513146169839455,
+      "meta": {
+        "seen_in": [
+          "arXiv"
+        ]
+      }
+    },
+    {
+      "id": "news:90f84e48047fe43a9ea12d1e",
+      "category": "Cyber Security",
+      "type": "article",
+      "hook": "New Attack Bypasses TPM Lockout to Crack Windows Hello and BitLocker PINs in Days, Not…",
+      "body": "On AMD-based PCs and some Intel PCs, the TPM lockout for Windows Hello and BitLocker PINs can be reset by someone who opens the PC's case, researchers at Technische Universität Berlin say.",
+      "mins": 2,
+      "source": {
+        "name": "The Hacker News",
+        "url": "https://thehackernews.com/2026/11/flash-chip-attack-bypasses-tpm-lockout.html"
+      },
+      "published": "2026-11-18T12:28:30Z",
+      "rank": 0.6328897231321291,
+      "meta": {
+        "seen_in": [
+          "The Hacker News"
+        ]
+      }
+    },
+    {
+      "id": "news:572b7212343397c332fc175a",
+      "category": "Cyber Security",
+      "type": "article",
+      "hook": "Attackers Used Optimizely to A/B Test Malware on Top Websites",
+      "body": "At least 178 top web destinations unwittingly served a variety of malware exploits against visitors over the past 24 hours thanks to a security vulnerability involving Optimizely, a company that…",
+      "mins": 2,
+      "source": {
+        "name": "Krebs on Security",
+        "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites"
+      },
+      "published": "2026-11-18T02:52:04Z",
+      "rank": 0.47954068317772064,
+      "meta": {
+        "seen_in": [
+          "Krebs on Security"
+        ]
+      }
+    },
+    {
+      "id": "news:f84b69d9724688d23918be90",
+      "category": "AI",
+      "type": "article",
+      "hook": "Weight-Space Programming builds neural networks like a 1990s researcher",
+      "body": "Via TLDR AI.",
+      "mins": 2,
+      "source": {
+        "name": "notesbylex.com",
+        "url": "https://notesbylex.com/weight-space-programming-1990s.html"
+      },
+      "published": "2026-11-18T00:00:00Z",
+      "rank": 0.4414232058266547,
+      "meta": {
+        "seen_in": [
+          "TLDR AI"
+        ]
+      },
+      "via": {
+        "name": "TLDR AI",
+        "url": "https://tldr.tech/ai/2026-11-18"
+      }
+    },
+    {
+      "id": "news:f822af8ae648479f40bc3056",
+      "category": "AI",
+      "type": "article",
+      "hook": "Introducing Replit Missions",
+      "body": "Via TLDR AI.",
+      "mins": 2,
+      "source": {
+        "name": "replit.com",
+        "url": "https://replit.com/blog/introducing-replit-missions"
+      },
+      "published": "2026-11-18T00:00:00Z",
+      "rank": 0.4414232058266547,
+      "meta": {
+        "seen_in": [
+          "TLDR AI"
+        ]
+      },
+      "via": {
+        "name": "TLDR AI",
+        "url": "https://tldr.tech/ai/2026-11-18"
+      }
+    },
+    {
+      "id": "news:f6c3adbf52c79b3178a8fe68",
+      "category": "Development",
+      "type": "article",
+      "hook": "Claude-BugHunter (GitHub Repo)",
+      "body": "Via TLDR DevOps.",
+      "mins": 2,
+      "source": {
+        "name": "github.com",
+        "url": "https://github.com/elementalsouls/Claude-BugHunter"
+      },
+      "published": "2026-11-18T00:00:00Z",
+      "rank": 0.4414232058266547,
+      "meta": {
+        "seen_in": [
+          "TLDR DevOps"
+        ]
+      },
+      "via": {
+        "name": "TLDR DevOps",
+        "url": "https://tldr.tech/devops/2026-11-18"
+      }
+    },
+    {
+      "id": "news:ef0668bcb4a436fa3ea78ed7",
+      "category": "AI",
+      "type": "article",
+      "hook": "Co-Designing Sparse Attention for Efficient Long-Context Inference",
+      "body": "Via TLDR AI.",
+      "mins": 2,
+      "source": {
+        "name": "developer.nvidia.com",
+        "url": "https://developer.nvidia.com/blog/co-designing-sparse-attention-for-efficient-long-context-inference"
+      },
+      "published": "2026-11-18T00:00:00Z",
+      "rank": 0.4414232058266547,
+      "meta": {
+        "seen_in": [
+          "TLDR AI"
+        ]
+      },
+      "via": {
+        "name": "TLDR AI",
+        "url": "https://tldr.tech/ai/2026-11-18"
+      }
+    },
+    {
+      "id": "news:eaf76493fdb0b4bfceb5ae2d",
+      "category": "Development",
+      "type": "article",
+      "hook": "GitHub availability report: October 2026",
+      "body": "Via TLDR DevOps.",
+      "mins": 2,
+      "source": {
+        "name": "github.blog",
+        "url": "https://github.blog/news-insights/company-news/github-availability-report-october-2026"
+      },
+      "published": "2026-11-18T00:00:00Z",
+      "rank": 0.4414232058266547,
+      "meta": {
+        "seen_in": [
+          "TLDR DevOps"
+        ]
+      },
+      "via": {
+        "name": "TLDR DevOps",
+        "url": "https://tldr.tech/devops/2026-11-18"
+      }
+    },
+    {
+      "id": "news:db91f55d1bd75cfae2c76617",
+      "category": "Development",
+      "type": "article",
+      "hook": "Should You Actually Add AI to That?",
+      "body": "Via TLDR Dev.",
+      "mins": 2,
+      "source": {
+        "name": "smashingmagazine.com",
+        "url": "https://smashingmagazine.com/2026/11/should-you-add-ai-audit-product-teams"
+      },
+      "published": "2026-11-18T00:00:00Z",
+      "rank": 0.4414232058266547,
+      "meta": {
+        "seen_in": [
+          "TLDR Dev"
+        ]
+      },
+      "via": {
+        "name": "TLDR Dev",
+        "url": "https://tldr.tech/dev/2026-11-18"
+      }
+    },
+    {
+      "id": "news:d8c780d9a81b08587c51fae9",
+      "category": "AI",
+      "type": "article",
+      "hook": "Microsoft-Decision-1.1 is now generally available for fast, low-cost decision making",
+      "body": "Via TLDR AI.",
+      "mins": 2,
+      "source": {
+        "name": "commandline.microsoft.com",
+        "url": "https://commandline.microsoft.com/microsoft-decision-model-ga"
+      },
+      "published": "2026-11-18T00:00:00Z",
+      "rank": 0.4414232058266547,
+      "meta": {
+        "seen_in": [
+          "TLDR AI"
+        ]
+      },
+      "via": {
+        "name": "TLDR AI",
+        "url": "https://tldr.tech/ai/2026-11-18"
+      }
+    },
+    {
+      "id": "news:c8dde4086f9ad8bc8df04dac",
+      "category": "Development",
+      "type": "article",
+      "hook": "My AI Agents (Re)discovered a Maya Site in 72 Hours",
+      "body": "Via TLDR Dev.",
+      "mins": 2,
+      "source": {
+        "name": "pietromiotti.com",
+        "url": "https://pietromiotti.com/latest/maya-site"
+      },
+      "published": "2026-11-18T00:00:00Z",
+      "rank": 0.4414232058266547,
+      "meta": {
+        "seen_in": [
+          "TLDR Dev"
+        ]
+      },
+      "via": {
+        "name": "TLDR Dev",
+        "url": "https://tldr.tech/dev/2026-11-18"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "catalogVersion": "2026.11.18",
+  "dateReleased": "2026-11-18T12:00:00Z",
+  "count": 2,
+  "vulnerabilities": [
+    {
+      "cveID": "CVE-2026-10001",
+      "vendorProject": "Example Co",
+      "product": "Widget",
+      "vulnerabilityName": "Widget Code Execution Vulnerability",
+      "dateAdded": "2026-11-18",
+      "shortDescription": "A remote code execution flaw affects Widget.",
+      "requiredAction": "Apply the vendor update.",
+      "dueDate": "2026-12-01"
+    },
+    {
+      "cveID": "CVE-2026-10002",
+      "vendorProject": "Demo",
+      "product": "Server",
+      "vulnerabilityName": "Server Privilege Escalation Vulnerability",
+      "dateAdded": "2026-11-17",
+      "shortDescription": "A privilege escalation flaw affects Server.",
+      "requiredAction": "",
+      "dueDate": "2026-12-01"
+    }
+  ]
+}
