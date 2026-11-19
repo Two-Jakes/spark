@@ -35,6 +35,8 @@ export function TopBar({
   onCategory,
   onSaved,
 }: TopBarProps): React.JSX.Element {
+  const active = [category === "All" ? null : category, time === "All" ? null : `Up to ${time} min`]
+    .filter(Boolean).join(" · ");
   return (
     <header className="top-bar">
       <div className="top-bar-main">
@@ -45,9 +47,11 @@ export function TopBar({
           <span>spark</span>
         </div>
         <div className="top-bar-right">
-          <span className="position-counter" aria-live="polite">
-            {total === 0 ? 0 : Math.min(current, total)} / {total} · {unread} left
-          </span>
+          {!savedOpen && (
+            <span className="position-counter" aria-live="polite">
+              {Math.min(current, total)} / {total} · {unread} left
+            </span>
+          )}
           <button
             className="saved-toggle"
             type="button"
@@ -60,40 +64,33 @@ export function TopBar({
         </div>
       </div>
       {!savedOpen && (
-        <div className="filter-rows">
-          <div className="chip-row" role="group" aria-label="Reading time">
-            {TIMES.map((option) => (
-              <button
-                key={option}
-                type="button"
-                className="filter-chip"
-                aria-label={`Filter reading time: ${option === "All" ? "All" : `${option} minutes`}`}
-                aria-pressed={time === option}
-                onClick={() => onTime(option)}
-              >
-                {option === "All" ? "All" : `${option} min`}
-              </button>
-            ))}
+        <details className="filters">
+          <summary>Filters{active && `: ${active}`}</summary>
+          <div className="filter-options">
+            <label>
+              Topic
+              <select value={category} onChange={(event) => onCategory(event.target.value as CategoryFilter)}>
+                {CATEGORIES.map((option) => <option key={option}>{option}</option>)}
+              </select>
+            </label>
+            <label>
+              Reading time
+              <select value={time} onChange={(event) => {
+                const selected = TIMES.find((option) => String(option) === event.target.value);
+                if (selected !== undefined) onTime(selected);
+              }}>
+                {TIMES.map((option) => (
+                  <option key={option} value={option}>
+                    {option === "All" ? "Any length" : `Up to ${option} min`}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <button type="button" disabled={!active} onClick={() => { onTime("All"); onCategory("All"); }}>
+              Reset
+            </button>
           </div>
-          <div
-            className="chip-row category-row"
-            role="group"
-            aria-label="Category"
-          >
-            {CATEGORIES.map((option) => (
-              <button
-                key={option}
-                type="button"
-                className="filter-chip"
-                aria-label={`Filter category: ${option}`}
-                aria-pressed={category === option}
-                onClick={() => onCategory(option)}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-        </div>
+        </details>
       )}
     </header>
   );

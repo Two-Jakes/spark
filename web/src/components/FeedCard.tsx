@@ -8,6 +8,7 @@ interface FeedCardProps {
   read: boolean;
   onRead: (id: string) => void;
   onReadAndNext: (id: string) => void;
+  onPrevious?: () => void;
   onSave: (id: string) => void;
   onDismiss: (id: string) => void;
   onListen: (card: Card) => void;
@@ -21,6 +22,7 @@ export function FeedCard({
   read,
   onRead,
   onReadAndNext,
+  onPrevious,
   onSave,
   onDismiss,
   onListen,
@@ -38,6 +40,10 @@ export function FeedCard({
     onListen(card);
   }
 
+  const publicationDate = new Date(card.published);
+  const dateLabel = Number.isNaN(publicationDate.getTime()) ? null
+    : new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeZone: "UTC" }).format(publicationDate);
+
   return (
     <article
       className="feed-card snap-panel"
@@ -52,7 +58,6 @@ export function FeedCard({
             {card.category} <span aria-hidden="true">·</span> {card.type}{" "}
             <span aria-hidden="true">·</span> {card.mins} min
           </span>
-          <span className="card-index">{String(index).padStart(2, "0")}</span>
         </div>
         <div className="card-content">
           <h2>{card.hook}</h2>
@@ -61,8 +66,9 @@ export function FeedCard({
         <div className="card-bottom">
           <div className="card-links">
             <SafeLink source={card.source} className="read-link">
-              Read original
+              {card.source.name}
             </SafeLink>
+            {dateLabel && <time dateTime={card.published}>{dateLabel}</time>}
             {card.via && (
               <SafeLink source={card.via} className="via-link">
                 via {card.via.name}
@@ -70,6 +76,7 @@ export function FeedCard({
             )}
           </div>
           <div className="card-actions">
+            {onPrevious && <button type="button" onClick={onPrevious}>Previous</button>}
             <button type="button" onClick={() => onRead(card.id)}>
               {read ? "Mark unread" : "Mark as read"}
             </button>

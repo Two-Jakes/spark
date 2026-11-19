@@ -288,6 +288,7 @@ export default function App(): React.JSX.Element {
               read={readIds.has(card.id)}
               onRead={toggleRead}
               onReadAndNext={readAndNext}
+              onPrevious={index > 0 ? () => goToPanel(index - 1) : undefined}
               onSave={toggleSaved}
               onDismiss={dismiss}
               onListen={listen}

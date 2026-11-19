@@ -43,17 +43,17 @@ const cards: Card[] = [
 ];
 
 describe("feed selection and rendering", () => {
-  /** Check exact reading-time filters and the All option; return nothing. */
+  /** Check cumulative reading-time filters and the All option; return nothing. */
   it("filters by reading time", () => {
     expect(
       filterCards(cards, 2, "All", new Set()).map((card) => card.id),
     ).toEqual(["two"]);
     expect(
       filterCards(cards, 5, "All", new Set()).map((card) => card.id),
-    ).toEqual(["one"]);
+    ).toEqual(["one", "two"]);
     expect(
       filterCards(cards, 10, "All", new Set()).map((card) => card.id),
-    ).toEqual(["three"]);
+    ).toEqual(["one", "two", "three"]);
     expect(filterCards(cards, "All", "All", new Set())).toHaveLength(3);
   });
 
@@ -114,7 +114,7 @@ describe("feed selection and rendering", () => {
       }),
     );
     expect(html).toContain('data-layout="article"');
-    expect(html).toContain("Read original");
+    expect(html).toContain(">Example<");
     expect(html).toContain('href="https://example.com/two"');
     expect(html).toContain("&lt;script&gt;");
     expect(html).not.toContain("<script>");

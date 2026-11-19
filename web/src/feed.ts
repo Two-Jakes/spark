@@ -13,7 +13,7 @@ export function filterCards(
   return cards.filter(
     (card) =>
       !dismissed.has(card.id) &&
-      (time === "All" || card.mins === time) &&
+      (time === "All" || card.mins <= time) &&
       (category === "All" || card.category === category),
   );
 }
