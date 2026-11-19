@@ -529,3 +529,15 @@ span.read-link {
     transition-duration: 0.01ms !important;
   }
 }
+
+.audio-message {
+  margin: 0;
+  color: var(--color-white-soft);
+}
+.saved-list details {
+  margin-bottom: var(--space-4);
+}
+.saved-list summary {
+  cursor: pointer;
+  margin-bottom: var(--space-2);
+}

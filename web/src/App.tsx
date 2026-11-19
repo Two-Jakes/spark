@@ -3,11 +3,13 @@ import type { Card, Feed } from "./types";
 import { filterCards, isFeed, readStoredIds, storeIds } from "./feed";
 import type { CategoryFilter, TimeFilter } from "./feed";
 import { FeedCard } from "./components/FeedCard";
-import { SafeLink } from "./components/CardVisual";
+import { CardVisual, SafeLink } from "./components/CardVisual";
 import { TopBar } from "./components/TopBar";
 import { readProgress, resumeIndex, storeProgress, unreadCards } from "./progress";
 
-const SAVED_KEY = "spark:saved";
+import { readLibrary, recoverSavedCards, storeLibrary } from "./saved";
+import { useSpeech } from "./useSpeech";
+
 const DISMISSED_KEY = "spark:dismissed";
 
 interface SavedViewProps {
@@ -36,6 +38,10 @@ function SavedView({ cards, onRemove }: SavedViewProps): React.JSX.Element {
                 {card.category} · {card.mins} min
               </span>
               <h2>{card.hook}</h2>
+              <details>
+                <summary>Read summary</summary>
+                <CardVisual card={card} />
+              </details>
               <div className="saved-row">
                 <SafeLink source={card.source} className="saved-source">
                   Read original
@@ -65,7 +71,8 @@ export default function App(): React.JSX.Element {
   const [retry, setRetry] = useState(0);
   const [time, setTime] = useState<TimeFilter>("All");
   const [category, setCategory] = useState<CategoryFilter>("All");
-  const [saved, setSaved] = useState<Set<string>>(readStoredIds(SAVED_KEY));
+  const [saved, setSaved] = useState(readLibrary);
+  const { playback, listen, stop } = useSpeech();
   const [dismissed, setDismissed] = useState<Set<string>>(
     readStoredIds(DISMISSED_KEY),
   );
@@ -106,7 +113,14 @@ export default function App(): React.JSX.Element {
     [feed, time, category, dismissed],
   );
   const unread = unreadCards(visible, readIds);
-  const savedCards = (feed?.cards ?? []).filter((card) => saved.has(card.id));
+  const library = recoverSavedCards(saved, feed?.cards ?? []);
+  const savedCards = [...library.values()].filter((card) => card !== null);
+
+  useEffect(() => {
+    if (library === saved) return;
+    storeLibrary(library);
+    setSaved(library);
+  }, [library, saved]);
 
   useLayoutEffect(() => {
     const root = scrollRef.current;
@@ -170,17 +184,22 @@ export default function App(): React.JSX.Element {
     goToPanel(visible.findIndex((card) => card.id === id) + 1);
   }
 
-  /** Toggle one saved ID and try to persist the new set; id is input; return nothing. */
+  /** Toggle a saved story and keep a local copy when it is saved. */
   function toggleSaved(id: string): void {
-    const next = new Set(saved);
+    const next = new Map(library);
     if (next.has(id)) next.delete(id);
-    else next.add(id);
+    else {
+      const card = feed?.cards.find((story) => story.id === id);
+      if (!card) return;
+      next.set(id, card);
+    }
     setSaved(next);
-    storeIds(SAVED_KEY, next);
+    storeLibrary(next);
   }
 
   /** Hide one card and try to persist its ID; id is input; return nothing. */
   function dismiss(id: string): void {
+    if (playback?.id === id) stop();
     const next = new Set(dismissed);
     next.add(id);
     setDismissed(next);
@@ -194,22 +213,15 @@ export default function App(): React.JSX.Element {
     storeIds(DISMISSED_KEY, next);
   }
 
-  /** Speak a headline and body with the browser voice; card is input; return nothing. */
-  function listen(card: Card): void {
-    if (!("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(
-      new SpeechSynthesisUtterance(`${card.hook}. ${card.body}`),
-    );
-  }
-
   /** Trigger another feed request; take no args and return nothing. */
   function retryFeed(): void {
+    stop();
     setRetry((value) => value + 1);
   }
 
   /** Switch between feed and saved cards; take no args and return nothing. */
   function toggleSavedView(): void {
+    stop();
     setSavedOpen((open) => !open);
   }
 
@@ -223,8 +235,8 @@ export default function App(): React.JSX.Element {
         unread={unread.length}
         savedCount={savedCards.length}
         savedOpen={savedOpen}
-        onTime={setTime}
-        onCategory={setCategory}
+        onTime={(value) => { stop(); setTime(value); }}
+        onCategory={(value) => { stop(); setCategory(value); }}
         onSaved={toggleSavedView}
       />
       {savedOpen ? (
@@ -292,6 +304,8 @@ export default function App(): React.JSX.Element {
               onSave={toggleSaved}
               onDismiss={dismiss}
               onListen={listen}
+              playback={playback?.id === card.id ? playback : null}
+              onStop={stop}
             />
           ))}
           <section

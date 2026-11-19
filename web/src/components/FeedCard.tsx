@@ -1,3 +1,4 @@
+import type { SpeechPlayback } from "../useSpeech";
 import type { Card } from "../types";
 import { CardVisual, SafeLink } from "./CardVisual";
 
@@ -12,6 +13,8 @@ interface FeedCardProps {
   onSave: (id: string) => void;
   onDismiss: (id: string) => void;
   onListen: (card: Card) => void;
+  playback?: SpeechPlayback | null;
+  onStop?: () => void;
 }
 
 /** Render one full-screen feed card and its source and local actions. */
@@ -26,6 +29,8 @@ export function FeedCard({
   onSave,
   onDismiss,
   onListen,
+  playback,
+  onStop,
 }: FeedCardProps): React.JSX.Element {
   /** Toggle this card's saved state; return nothing. */
   function handleSave(): void {
@@ -40,6 +45,9 @@ export function FeedCard({
     onListen(card);
   }
 
+  const listenLabel = playback?.status === "starting" ? "Starting audio…"
+    : playback?.status === "playing" ? "Pause"
+    : playback?.status === "paused" ? "Resume" : "Listen";
   const publicationDate = new Date(card.published);
   const dateLabel = Number.isNaN(publicationDate.getTime()) ? null
     : new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeZone: "UTC" }).format(publicationDate);
@@ -103,11 +111,16 @@ export function FeedCard({
             <button
               type="button"
               onClick={handleListen}
-              aria-label={`Listen to: ${card.hook}`}
+              aria-label={`${listenLabel}: ${card.hook}`}
+              disabled={playback?.status === "starting"}
             >
-              Listen
+              {listenLabel}
             </button>
+            {playback && playback.status !== "error" && (
+              <button type="button" onClick={onStop}>Stop audio</button>
+            )}
           </div>
+          {playback?.message && <p className="audio-message" role="status">{playback.message}</p>}
         </div>
       </div>
     </article>
