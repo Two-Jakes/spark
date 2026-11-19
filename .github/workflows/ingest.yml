@@ -1,0 +1,54 @@
+name: Refresh feed
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-feed
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/heads/${{ github.event.repository.default_branch }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+      - run: python -m pytest
+
+      - name: Generate and validate feed
+        env:
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+        run: |
+          rm -f -- data/feed.json
+          if ! python -m ingest.main || ! python scripts/validate_feed.py --min-cards 15; then
+            git restore -- data/feed.json
+            echo "::error::Feed refresh failed. The previous feed was restored. See the ingest or validation error above."
+            exit 1
+          fi
+
+      - name: Commit and push changed feed
+        run: |
+          if git diff --quiet -- data/feed.json; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- data/feed.json
+          git commit -m 'chore: refresh feed'
+          git push origin "HEAD:refs/heads/$DEFAULT_BRANCH"

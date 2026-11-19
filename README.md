@@ -76,6 +76,17 @@ npm test         # runs Vitest
 
 `predev` and `prebuild` copy the current feed into `web/public/feed.json`. The app refreshes that file without using the browser's normal HTTP cache. Saved and dismissed card IDs stay in browser storage when available.
 
+## Deploying
+
+The scheduled ingest workflow runs every six hours and can also be run manually from GitHub Actions. It validates the generated feed and commits changes to `data/feed.json` on the default branch. If the feed is invalid or contains fewer than 15 cards, the run fails and keeps the previous feed. Set the optional `NVD_API_KEY` repository secret for higher NVD rate limits.
+
+Connect the GitHub repository to Cloudflare Pages and set the production branch to the repository's default branch. Cloudflare Pages builds the static app on every push to that branch, including feed refresh commits. Use the repository root as the build root.
+
+| Setting | Value |
+|---|---|
+| Build command | `cd web && npm ci && npm run build` |
+| Build output directory | `web/dist` |
+
 ## Cost
 
 Runs on free tiers: static hosting plus a scheduled GitHub Action. LLM summaries, when added, are expected to cost a few dollars a month.
